@@ -1,11 +1,11 @@
 # action.yml
 name: 'Custom GitHub Action'
 descriotion: 'GA takes input and returns outputs'
-input:
+inputs:
   num:
     required: ture
     default: "1"
-output:
+outputs:
   num_squared:
     value: ${{ steps.get-square.outputs.num_squared }}
 runs:
