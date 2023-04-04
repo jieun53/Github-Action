@@ -1,6 +1,6 @@
 # action.yml
-name: 'Custom Gitshub Action'
-descriotion: 'A Github Action that takes an input and returns the square of the number GA takes input and returns outputs'
+name: 'Custom GitHub Action'
+descriotion: 'GA takes input and returns outputs'
 input:
   num:
     required: ture
