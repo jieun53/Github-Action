@@ -10,9 +10,9 @@ output:
     value: ${{ steps.get-square.outputs.num_squared }}
 runs:
   using: 'composite'
-  setps:
+  steps:
       - name: Install Python
-        uses: astions/setup-python@v4
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
       - name: Install Dependencies
