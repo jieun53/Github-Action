@@ -1,0 +1,28 @@
+# action.yml
+name: 'Custom Gitshub Action'
+descriotion: 'A Github Action that takes an input and returns the square of the number GA takes input and returns outputs'
+input:
+  num:
+    required: ture
+    default: "1"
+output:
+  num_squared:
+    value: ${{ steps.get-square.outputs.num_squared }}
+runs:
+  using: 'composite'
+  setps:
+      - name: Install Python
+        uses: astions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+        shell: bash
+      - name: Pass Inputs to Shell
+        run: |
+          echo "INPUT_NUM=${{ inputs.num }}" >> $GITHUB_ENV
+        shell: bash
+      - name: Fetch the number's square
+        id: get-square
+        run: puthon src/get_num_square.py
+        shell: bash
